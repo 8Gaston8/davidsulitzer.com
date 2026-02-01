@@ -267,14 +267,18 @@ h2 {
 }
 
 .work-grid,
-.service-grid {
+.service-grid,
+.info-grid,
+.question-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
 .work-card,
-.service-card {
+.service-card,
+.info-card,
+.question-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -284,7 +288,9 @@ h2 {
 }
 
 .work-card:hover,
-.service-card:hover {
+.service-card:hover,
+.info-card:hover,
+.question-card:hover {
   transform: translateY(-4px);
   border-color: rgba(124, 140, 255, 0.6);
 }
