@@ -266,6 +266,28 @@ h2 {
   max-width: 600px;
 }
 
+.workflow-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.workflow-step {
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(124, 140, 255, 0.18);
+  border: 1px solid rgba(124, 140, 255, 0.35);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.workflow-arrow {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
 .work-grid,
 .service-grid,
 .info-grid,
