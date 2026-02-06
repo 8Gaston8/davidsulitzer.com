@@ -30,9 +30,15 @@
           <a href="#work">Work</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a class="button button-outline" href="mailto:davidsulitzer@icloud.com"
-          >Say hello</a
-        >
+        <div class="nav-right">
+          <button class="theme-toggle" type="button" id="theme-toggle">
+            <span aria-hidden="true">🌗</span>
+            <span class="theme-toggle-label">Theme</span>
+          </button>
+          <a class="button button-outline" href="mailto:davidsulitzer@icloud.com"
+            >Say hello</a
+          >
+        </div>
       </div>
     </header>
 
@@ -563,5 +569,71 @@
         </div>
       </div>
     </footer>
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeLabel = themeToggle?.querySelector(".theme-toggle-label");
+      const themeStorageKey = "theme";
+
+      const getStoredTheme = () => localStorage.getItem(themeStorageKey);
+      const prefersDark = () =>
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      const applyTheme = (theme) => {
+        if (theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+        }
+      };
+
+      const updateToggle = (theme) => {
+        const isDark = theme === "dark" || (!theme && prefersDark());
+        themeToggle?.setAttribute("aria-pressed", String(isDark));
+        if (themeLabel) {
+          themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+        }
+      };
+
+      const setTheme = (theme) => {
+        applyTheme(theme);
+        if (theme) {
+          localStorage.setItem(themeStorageKey, theme);
+        } else {
+          localStorage.removeItem(themeStorageKey);
+        }
+        updateToggle(theme);
+      };
+
+      const initTheme = () => {
+        const storedTheme = getStoredTheme();
+        if (storedTheme === "light" || storedTheme === "dark") {
+          applyTheme(storedTheme);
+        }
+        updateToggle(storedTheme);
+      };
+
+      themeToggle?.addEventListener("click", () => {
+        const storedTheme = getStoredTheme();
+        const nextTheme =
+          storedTheme === "light"
+            ? "dark"
+            : storedTheme === "dark"
+              ? "light"
+              : prefersDark()
+                ? "light"
+                : "dark";
+        setTheme(nextTheme);
+      });
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", () => {
+          if (!getStoredTheme()) {
+            updateToggle(null);
+          }
+        });
+
+      initTheme();
+    </script>
   </body>
 </html>
