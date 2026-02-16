@@ -40,7 +40,7 @@ main {
 
 .floating-nav {
   position: fixed;
-  top: 18px;
+  top: calc(18px + env(safe-area-inset-top));
   left: 20px;
   right: 20px;
   z-index: 40;
@@ -78,10 +78,17 @@ main {
 
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 136px 26px 34px;
+  padding: calc(136px + env(safe-area-inset-top)) 26px calc(34px + env(safe-area-inset-bottom));
+}
+
+@supports (height: 100dvh) {
+  .hero {
+    min-height: 100dvh;
+  }
 }
 
 .hero h1 {
@@ -556,6 +563,13 @@ main {
 }
 
 @media (max-width: 980px) {
+  .hero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: calc(112px + env(safe-area-inset-top));
+    padding-bottom: calc(28px + env(safe-area-inset-bottom));
+  }
+
   .hero h1 {
     font-size: 18vw;
   }
@@ -586,7 +600,7 @@ main {
   .floating-nav {
     display: flex;
     justify-content: center;
-    top: 12px;
+    top: calc(12px + env(safe-area-inset-top));
     left: 12px;
     right: 12px;
   }
