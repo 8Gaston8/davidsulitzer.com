@@ -19,6 +19,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +29,8 @@ body {
   font-family: "Inter", sans-serif;
   min-height: 100vh;
   line-height: 1.2;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 a {
@@ -308,6 +312,7 @@ main {
   margin: 52px 0;
   border-top: 2px solid var(--black);
   border-bottom: 2px solid var(--black);
+  overflow-x: clip;
 }
 
 .marquee-shell {
@@ -565,6 +570,7 @@ main {
 @media (max-width: 980px) {
   .hero {
     min-height: auto;
+    align-items: center;
     justify-content: flex-start;
     padding-top: calc(112px + env(safe-area-inset-top));
     padding-bottom: calc(28px + env(safe-area-inset-bottom));
@@ -572,12 +578,16 @@ main {
 
   .hero h1 {
     font-size: 18vw;
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
   }
 
   .hero-meta-row {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
+    width: 100%;
   }
 
   .origin-grid {
