@@ -3,637 +3,243 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>David Sulitzer — Product & Digital Storytelling</title>
+    <title>David Sulitzer - Kinetic Orange</title>
     <meta
       name="description"
-      content="Personal hub for David Sulitzer: product leadership, tech passions, and a curious, minimalist approach to building digital experiences."
+      content="David Sulitzer in Kinetic Orange: brutalist product leadership, sharp strategy, and fast execution."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="kinetic.css?v=20260216a" />
   </head>
   <body>
-    <div class="ambient-glow" aria-hidden="true"></div>
-    <header class="site-header">
-      <div class="container nav">
-        <a class="logo" href="#top" aria-label="David Sulitzer home">
-          <span class="logo-mark">DS</span>
-          <span>David Sulitzer</span>
-        </a>
-        <nav class="nav-links">
-          <a href="#bio">Bio</a>
-          <a href="#tech">Tech</a>
-          <a href="#work">Work</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="nav-right">
-          <button class="theme-toggle" type="button" id="theme-toggle">
-            <span aria-hidden="true">🌗</span>
-            <span class="theme-toggle-label">Theme</span>
-          </button>
-          <a class="button button-outline" href="mailto:davidsulitzer@icloud.com"
-            >Say hello</a
-          >
-        </div>
-      </div>
+    <header class="floating-nav">
+      <nav class="nav-pill" aria-label="Primary">
+        <a href="#hero">HOME</a>
+        <a href="#services">VISION</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
     </header>
 
     <main id="top">
-      <section class="hero" id="bio">
-        <div class="container hero-grid">
-          <div>
-            <p class="eyebrow">Very short bio</p>
-            <h1>A curious minimalist with a love for beautiful native products.</h1>
-            <p class="subhead">
-              I’m French and English, born near Paris, educated in the UK, and now
-              living in Tel Aviv. I’ve spent 7+ years leading product work across
-              B2C and B2B, building mobile apps with tens of thousands of monthly
-              active users — and I now run an AI-native PM system where agents
-              ship code while I steer the product.
+      <section class="hero" id="hero">
+        <h1>
+          DAVID
+          <br />
+          SULITZER
+        </h1>
+
+        <div class="hero-meta-row">
+          <p class="meta-left">
+            BASED IN TEL AVIV
+            <br />
+            PRODUCT MANAGEMENT
+          </p>
+
+          <div class="scroll-indicator" aria-label="Scroll down indicator">
+            <svg width="144" height="144" viewBox="0 0 144 144" role="img" aria-hidden="true">
+              <defs>
+                <path
+                  id="scroll-circle-path"
+                  d="M72,72 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"
+                />
+              </defs>
+              <g class="spinner">
+                <text font-size="9" font-family="Space Mono, monospace" font-weight="700">
+                  <textPath href="#scroll-circle-path">
+                    SCROLL DOWN • SCROLL DOWN • SCROLL DOWN • SCROLL DOWN •
+                  </textPath>
+                </text>
+              </g>
+            </svg>
+            <span class="center-arrow" aria-hidden="true">&#8595;</span>
+          </div>
+
+          <p class="meta-right">
+            AI-NATIVE BUILDER
+            <br />
+            IOS-FIRST THINKER
+          </p>
+        </div>
+      </section>
+
+      <section class="origin-story" id="story">
+        <p class="origin-kicker">ORIGIN STORY</p>
+        <h2>FROM FOUNDATION TO FULL STACK</h2>
+        <p class="origin-lead">
+          Born near Paris. Bilingual in French and English. Hooked on Asimov at
+          12, physics at 14, then pulled into the digital world where curiosity,
+          structure, and product craft finally clicked into one lane.
+        </p>
+
+        <div class="origin-grid">
+          <article class="origin-card">
+            <p class="origin-year">AGE 12</p>
+            <h3>SCI-FI BRAIN</h3>
+            <p>
+              Foundation blew the doors open. Big-sky thinking, literature,
+              philosophy, and endless curiosity became the baseline.
             </p>
-            <div class="hero-actions">
-              <a class="button" href="#workflow">How I work</a>
-              <a class="button button-ghost" href="#favourites"
-                >Favourite products</a
-              >
+            <div class="origin-tags">
+              <span>ASIMOV</span>
+              <span>CURIOSITY</span>
+              <span>PHILOSOPHY</span>
             </div>
-            <div class="stat-row">
-              <div>
-                <p class="stat">7+ yrs</p>
-                <p class="stat-label">Product leadership</p>
+          </article>
+
+          <article class="origin-card">
+            <p class="origin-year">AGE 14</p>
+            <h3>SCIENTIFIC METHOD</h3>
+            <p>
+              First physics class. Obsession with first principles, clean logic,
+              and details that actually hold up under pressure.
+            </p>
+            <div class="origin-tags">
+              <span>PHYSICS</span>
+              <span>RIGOR</span>
+              <span>DETAIL</span>
+            </div>
+          </article>
+
+          <article class="origin-card">
+            <p class="origin-year">NOW</p>
+            <h3>PRODUCT MANAGEMENT</h3>
+            <p>
+              Ten-plus years building products, wearing many hats, and turning
+              ambiguity into shipped outcomes with a minimalist taste for clarity.
+            </p>
+            <div class="origin-tags">
+              <span>MINIMALIST</span>
+              <span>MANY HATS</span>
+              <span>EXECUTION</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="motto" aria-label="Personal motto">
+        <p class="motto-kicker">MOTTO</p>
+        <ol class="motto-list">
+          <li><span>SPEAK</span> TOGETHER</li>
+          <li><span>BUILD</span> TO SHIP</li>
+          <li><span>TELL</span> THE STORY</li>
+        </ol>
+      </section>
+
+      <section class="marquee-section" aria-label="Moving statements">
+        <div class="marquee-shell">
+          <div class="marquee-row marquee-forward">
+            <div class="track">
+              <span>PRODUCT CLARITY • SYSTEMS THINKING • AI-POWERED EXECUTION •</span>
+              <span>PRODUCT CLARITY • SYSTEMS THINKING • AI-POWERED EXECUTION •</span>
+            </div>
+          </div>
+          <div class="marquee-row marquee-reverse">
+            <div class="track">
+              <span>NATIVE UX • RAPID SHIPPING • NARRATIVE STRATEGY • QUALITY OBSESSION •</span>
+              <span>NATIVE UX • RAPID SHIPPING • NARRATIVE STRATEGY • QUALITY OBSESSION •</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <ul class="service-list">
+          <li>
+            <a class="service-item" href="#service-strategy">
+              <p class="service-index">01</p>
+              <div class="service-main">
+                <h2 class="service-title">PRODUCT STRATEGY</h2>
+                <div class="service-tags">
+                  <span>ROADMAP</span>
+                  <span>PRIORITIZATION</span>
+                  <span>MARKET FIT</span>
+                </div>
               </div>
-              <div>
-                <p class="stat">30k+</p>
-                <p class="stat-label">Monthly active users</p>
+              <span class="service-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="service-item" href="#service-ai-workflows">
+              <p class="service-index">02</p>
+              <div class="service-main">
+                <h2 class="service-title">AI WORKFLOW DESIGN</h2>
+                <div class="service-tags">
+                  <span>AUTOMATION</span>
+                  <span>TOOLS</span>
+                  <span>VELOCITY</span>
+                </div>
               </div>
-              <div>
-                <p class="stat">#385</p>
-                <p class="stat-label">Product Hunt user</p>
+              <span class="service-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="service-item" href="#service-native-execution">
+              <p class="service-index">03</p>
+              <div class="service-main">
+                <h2 class="service-title">NATIVE APP EXECUTION</h2>
+                <div class="service-tags">
+                  <span>IOS</span>
+                  <span>EXPERIENCE</span>
+                  <span>SHIP FAST</span>
+                </div>
               </div>
-              <div>
-                <p class="stat">12</p>
-                <p class="stat-label">AI skills built</p>
-              </div>
-            </div>
-          </div>
-          <div class="hero-card">
-            <div class="card-top">
-              <p class="tag">About me</p>
-              <h2>Ardent minimalist, patient curiosity.</h2>
-              <p>
-                I fell in love with science fiction at 12, dreamed of becoming an
-                astrophysicist, and eventually shifted into the digital world and
-                product management. I’m obsessed with details, calm interfaces,
-                and the craft of making complex ideas feel effortless.
-              </p>
-            </div>
-            <div class="card-bottom">
-              <div>
-                <p class="label">Highlight</p>
-                <p class="value">Lumen & Debut apps</p>
-              </div>
-              <div>
-                <p class="label">Philosophy</p>
-                <p class="value">Clarity over noise</p>
-              </div>
-              <div>
-                <p class="label">Curiosity</p>
-                <p class="value">Science fiction + philosophy</p>
-              </div>
-            </div>
-          </div>
-        </div>
+              <span class="service-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </li>
+        </ul>
       </section>
 
-      <section id="workflow" class="section section-alt">
-        <div class="container">
-          <div class="section-header">
-            <h2>How I work now</h2>
-            <p>
-              I treat AI coding agents like my dev team. I write the specs, set
-              the priorities, define the quality bar, and review every output.
-              They do the building, testing, and deployment choreography. I stay
-              close to the user, the metrics, and the intent.
-            </p>
-          </div>
-          <div class="workflow-flow" aria-label="AI-native product loop">
-            <span class="workflow-step">Ideate</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">Issue</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">Agent</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">PR</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">QA</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">Review</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">Ship</span>
-            <span class="workflow-arrow">→</span>
-            <span class="workflow-step">Monitor</span>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>The philosophy</h3>
-              <p>
-                I’m the product mind, the agents are the hands. I obsess over
-                user impact, clarity, and sequencing. The agents turn that into
-                working code and proof.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>The system loop</h3>
-              <p>
-                I capture signals (metrics, feedback, bugs), craft structured
-                GitHub issues, trigger agents, and pull the work back through
-                QA. Nothing ships without a human gate.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>The craft</h3>
-              <p>
-                The skills are the product. I’ve shipped 20+ PRs that are just
-                workflow refinements — the same product rigor as any feature.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>The tools</h3>
-              <p>
-                Cursor, OpenAI Codex, GitHub Actions, GitHub Projects (GraphQL),
-                Mixpanel, Firebase Crashlytics, Slack MCP, Fibery, Mailgun,
-                LaunchDarkly, RevenueCat, CircleCI, Fastlane.
-              </p>
-            </article>
-          </div>
-        </div>
+      <section class="service-detail" id="service-strategy">
+        <p class="detail-kicker">01 / PRODUCT STRATEGY</p>
+        <h3>I TURN AMBIGUOUS IDEAS INTO ROADMAPS TEAMS CAN ACTUALLY SHIP</h3>
+        <p>
+          Over 10+ years across B2C and B2B, I have led product work from fuzzy
+          opportunity to shipped outcomes. My focus is ruthless prioritization,
+          clear sequencing, and fast decisions rooted in user impact.
+        </p>
       </section>
 
-      <section id="tech" class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>My tech self</h2>
-            <p>
-              I obsess over mobile apps, native experiences, and elegant product
-              design. I track tech trends closely and read every Stratechery
-              newsletter since launch.
-            </p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>Beautiful native bias</h3>
-              <p>
-                I’m especially passionate about iOS apps and the craft of
-                building delightful, native-first experiences.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>AI-native workflow pioneer</h3>
-              <p>
-                I built 12 custom AI skills that codify issue creation, QA,
-                deployments, release management, bug triage, and release notes
-                into executable playbooks for coding agents.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>CONDUCTOR builder</h3>
-              <p>
-                I wrote an autonomous GitHub Action that prioritizes the backlog
-                hourly and triggers agents to fix comments, CI failures, and
-                ready-to-start issues.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Early adopter energy</h3>
-              <p>
-                Cursor, Codex, Claude, Trello, Slack, Calm, AngelList, Product
-                Hunt, Monzo, Notion, Readwise, Craft — I’ve lived inside most of
-                them.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Claims to fame</h3>
-              <p>
-                User #385 at Product Hunt and #11,150 at Monzo (back when they
-                were scrappy and new).
-              </p>
-            </article>
-          </div>
-        </div>
+      <section class="service-detail" id="service-ai-workflows">
+        <p class="detail-kicker">02 / AI WORKFLOW DESIGN</p>
+        <h3>I RUN AN AI-NATIVE PRODUCT SYSTEM THAT INCREASES SPEED WITHOUT CUTTING QUALITY</h3>
+        <p>
+          I built 12 custom AI skills and a CONDUCTOR automation loop to turn
+          planning, coding, QA, and release work into repeatable execution.
+          Result: faster cycle time, cleaner handoffs, and higher quality at
+          scale.
+        </p>
       </section>
 
-      <section id="favourites" class="section section-alt">
-        <div class="container">
-          <div class="section-header">
-            <h2>Favourite products</h2>
-            <p>
-              The products I admire most are the ones where it’s obvious the team
-              cares — the polish is felt in every interaction.
-            </p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>Cursor</h3>
-              <p>The AI-first code editor that changed how I build.</p>
-            </article>
-            <article class="info-card">
-              <h3>Claude</h3>
-              <p>The AI that understands nuance and gets product context.</p>
-            </article>
-            <article class="info-card">
-              <h3>Notion</h3>
-              <p>All-in-one workspace done with taste and flexibility.</p>
-            </article>
-            <article class="info-card">
-              <h3>Readwise</h3>
-              <p>Turns highlights into a daily ritual of learning.</p>
-            </article>
-            <article class="info-card">
-              <h3>Stratechery</h3>
-              <p>Sharp thinking on the business and strategy of tech.</p>
-            </article>
-            <article class="info-card">
-              <h3>MUBI</h3>
-              <p>Curated cinema with a heartbeat.</p>
-            </article>
-            <article class="info-card">
-              <h3>Telegram</h3>
-              <p>Fast, reliable, and consistently evolving.</p>
-            </article>
-            <article class="info-card">
-              <h3>Craft</h3>
-              <p>A writing canvas that feels intentionally designed.</p>
-            </article>
-          </div>
-        </div>
+      <section class="service-detail" id="service-native-execution">
+        <p class="detail-kicker">03 / NATIVE APP EXECUTION</p>
+        <h3>I BUILD NATIVE PRODUCTS WITH HIGH STANDARDS FOR TASTE, SPEED, AND DETAIL</h3>
+        <p>
+          I care deeply about iOS product craft: clear flows, strong interaction
+          design, and launch discipline. I have shipped products used by
+          large, engaged user bases and I keep raising the quality bar.
+        </p>
       </section>
 
-      <section id="approach" class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>My approach to product management</h2>
-            <p>
-              The past three months rewired how I operate. I’m now an AI-native
-              PM: I design the system, I define the quality bar, and AI agents
-              execute the repetitive work. It’s not “future of work” — it’s how
-              Atly ships every week right now.
-            </p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>12 AI Skills that run my workflow</h3>
-              <p>
-                I've codified every repeating PM workflow — from issue creation
-                to release management — into structured markdown playbooks that
-                AI coding agents execute autonomously. Each skill is a multi-step,
-                deeply detailed instruction set covering edge cases, error
-                handling, verification steps, and quality gates. They span issue
-                creation (with cross-platform dependency management via GraphQL),
-                QA (a 5-phase server pipeline and adaptive iOS workflow), release
-                management (with a custom App Stability Score from 6 weighted
-                metrics), bug triage (visual screenshot analysis from Slack),
-                crash triage, deployment orchestration, and release notes
-                generation.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>An autonomous backlog orchestrator</h3>
-              <p>
-                CONDUCTOR is a GitHub Action I built that runs hourly during work
-                hours. It surveys both iOS and server repos, prioritizes work
-                (review comments → CI failures → merge conflicts → server issues
-                → iOS issues), and posts saved replies to trigger AI coding
-                agents. It has safeguards: max 5 in-flight PRs, circuit breaker
-                logic, attempt counting, and 3 modes (survey, dry-run, execute).
-                My backlog literally works itself.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>AI builds it, I ship it</h3>
-              <p>
-                Nothing reaches users without my review. AI agents create PRs
-                and run QA, but PRs stay as drafts until I personally verify.
-                For UI changes, I build in Xcode and visually inspect every
-                pixel. For logic changes, I review the diff. I define the
-                quality bar, the agents meet it — and when they don't, they
-                iterate until they do.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Metrics aren't dashboards — they're in the workflow</h3>
-              <p>
-                Our Q1 2026 North Star ($1M ARR for Atly Plus) isn't a slide deck
-                metric — it's embedded in every AI skill file. Every issue gets
-                a funnel-stage label (Acquisition, Activation, Conversion,
-                Retention). Every release gets a "Metrics Impact" analysis.
-                Leading indicators (Activation Rate, Early Retention, Investment
-                Rate) are referenced in the skill instructions themselves,
-                ensuring every piece of work traces back to what matters.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>8 releases in 10 weeks</h3>
-              <p>
-                Between November 2025 and February 2026: 60+ merged iOS PRs, 19+
-                server PRs, 8 iOS releases shipped (v4.23.0 → v4.30.0), 100+
-                structured GitHub issues created, and features like Smart
-                Queries, retention flows, place profile redesigns, email
-                campaigns, and a complete settings/account screen overhaul — all
-                with AI agents doing the heavy lifting while I focused on what
-                to build and why.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="questions" class="section section-alt">
-        <div class="container">
-          <div class="section-header">
-            <h2>Questions for you</h2>
-            <p>
-              These are the questions I ask to understand how your team thinks
-              and builds.
-            </p>
-          </div>
-          <div class="question-grid">
-            <div class="question-card">
-              <p>How would you describe your internal culture in a few words?</p>
-            </div>
-            <div class="question-card">
-              <p>What are your product and design principles?</p>
-            </div>
-            <div class="question-card">
-              <p>What does your product discovery process look like?</p>
-            </div>
-            <div class="question-card">
-              <p>Is your product native or cross-platform?</p>
-            </div>
-            <div class="question-card">
-              <p>How do you use AI in your product development workflow?</p>
-            </div>
-            <div class="question-card">
-              <p>What's your approach to AI-assisted coding and quality control?</p>
-            </div>
-            <div class="question-card">
-              <p>What’s your PM/Designer ratio?</p>
-            </div>
-            <div class="question-card">
-              <p>What is your funding situation?</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Education</h2>
-            <p>
-              Aerospace engineering in the UK, business in Strasbourg, and an
-              endless appetite for learning through podcasts, books, and
-              Brilliant.
-            </p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>France → UK</h3>
-              <p>French baccalauréat, then aerospace engineering in Manchester.</p>
-            </article>
-            <article class="info-card">
-              <h3>Business focus</h3>
-              <p>Postgraduate work in Strasbourg on the space industry.</p>
-            </article>
-            <article class="info-card">
-              <h3>Lifelong learner</h3>
-              <p>Brilliant, Readwise, and a steady diet of strategy writing.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" class="section section-alt">
-        <div class="container">
-          <div class="section-header">
-            <h2>Work</h2>
-            <p>
-              I moved from space industry roles to product management because the
-              impact felt more immediate and fun.
-            </p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>Atly</h3>
-              <p>
-                Product Manager for the iOS client at Atly (place discovery). I
-                also shape backend work when it impacts iOS, and I pioneered an
-                AI-native workflow where agents build while I steer product
-                direction.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Lumen</h3>
-              <p>
-                Mobile-first product work with standout designers — still my
-                favourite role.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Debut</h3>
-              <p>
-                Built B2C mobile experiences with tens of thousands of active
-                users.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Space → Tech</h3>
-              <p>
-                Transitioned from engineering and business in space to tech
-                product leadership.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="reading" class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>What I’m reading and writing</h2>
-            <p>
-              I live in science fiction, philosophy, and long-form writing about
-              technology and culture.
-            </p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>Stratechery</h3>
-              <p>Business, strategy, and the impact of tech.</p>
-            </article>
-            <article class="info-card">
-              <h3>Ribbonfarm</h3>
-              <p>Magical thinking for curious builders.</p>
-            </article>
-            <article class="info-card">
-              <h3>LessWrong</h3>
-              <p>Rationality, community, and deeper inquiry.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="social" class="section section-alt">
-        <div class="container">
-          <div class="section-header">
-            <h2>Social media</h2>
-            <p>Find me wandering around these corners of the internet.</p>
-          </div>
-          <div class="info-grid">
-            <article class="info-card">
-              <h3>Instagram</h3>
-              <p>Mostly nature: @8gaston8</p>
-            </article>
-            <article class="info-card">
-              <h3>Reading View</h3>
-              <p>Book highlights: @readingview</p>
-            </article>
-            <article class="info-card">
-              <h3>LinkedIn</h3>
-              <p>David Sulitzer</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="sports" class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Sports</h2>
-            <p>
-              Cycling, exercise, and a lifetime of movement — from ski racing to
-              salsa.
-            </p>
-          </div>
-          <div class="question-grid">
-            <div class="question-card">
-              <p>Ski: 25+ years (silver medals for slalom).</p>
-            </div>
-            <div class="question-card">
-              <p>Judo: 4 years (green-blue belt).</p>
-            </div>
-            <div class="question-card">
-              <p>Karate: 7 years (blue belt).</p>
-            </div>
-            <div class="question-card">
-              <p>Four-wheeling trophies as co-pilot.</p>
-            </div>
-            <div class="question-card">
-              <p>Salsa: 4 years.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section section-alt">
-        <div class="container contact">
-          <div>
-            <h2>Contact me</h2>
-            <p>
-              Email or WhatsApp works best. I reply quickly and always appreciate
-              thoughtful intros.
-            </p>
-          </div>
-          <div class="contact-card">
-            <p class="tag">Direct</p>
-            <ul>
-              <li>Email: davidsulitzer@icloud.com</li>
-              <li>WhatsApp: +972539240711</li>
-            </ul>
-            <a class="button" href="mailto:davidsulitzer@icloud.com">Email David</a>
-          </div>
-        </div>
+      <section class="cta" id="contact">
+        <h2>LET'S BUILD THE DAMN THING</h2>
+        <a class="cta-button" href="mailto:davidsulitzer@icloud.com">START A CONVERSATION</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-content">
-        <p>© 2025 David Sulitzer. Crafted with intention.</p>
-        <div class="footer-links">
-          <a href="https://www.linkedin.com/in/davidsulitzer/">LinkedIn</a>
-          <a href="https://www.instagram.com/8gaston8/">Instagram</a>
-          <a href="https://www.instagram.com/readingview/">Reading View</a>
-        </div>
+      <p>&copy; 2026 DAVID SULITZER</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/davidsulitzer/" target="_blank" rel="noreferrer">LINKEDIN</a>
+        <a href="https://github.com/8Gaston8" target="_blank" rel="noreferrer">GITHUB</a>
+        <a href="mailto:davidsulitzer@icloud.com">EMAIL</a>
       </div>
     </footer>
-    <script>
-      const themeToggle = document.getElementById("theme-toggle");
-      const themeLabel = themeToggle?.querySelector(".theme-toggle-label");
-      const themeStorageKey = "theme";
-
-      const getStoredTheme = () => localStorage.getItem(themeStorageKey);
-      const prefersDark = () =>
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      const applyTheme = (theme) => {
-        if (theme) {
-          document.documentElement.setAttribute("data-theme", theme);
-        } else {
-          document.documentElement.removeAttribute("data-theme");
-        }
-      };
-
-      const updateToggle = (theme) => {
-        const isDark = theme === "dark" || (!theme && prefersDark());
-        themeToggle?.setAttribute("aria-pressed", String(isDark));
-        if (themeLabel) {
-          themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
-        }
-      };
-
-      const setTheme = (theme) => {
-        applyTheme(theme);
-        if (theme) {
-          localStorage.setItem(themeStorageKey, theme);
-        } else {
-          localStorage.removeItem(themeStorageKey);
-        }
-        updateToggle(theme);
-      };
-
-      const initTheme = () => {
-        const storedTheme = getStoredTheme();
-        if (storedTheme === "light" || storedTheme === "dark") {
-          applyTheme(storedTheme);
-        }
-        updateToggle(storedTheme);
-      };
-
-      themeToggle?.addEventListener("click", () => {
-        const storedTheme = getStoredTheme();
-        const nextTheme =
-          storedTheme === "light"
-            ? "dark"
-            : storedTheme === "dark"
-              ? "light"
-              : prefersDark()
-                ? "light"
-                : "dark";
-        setTheme(nextTheme);
-      });
-
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", () => {
-          if (!getStoredTheme()) {
-            updateToggle(null);
-          }
-        });
-
-      initTheme();
-    </script>
   </body>
 </html>
