@@ -577,7 +577,7 @@ main {
   }
 
   .hero h1 {
-    font-size: 18vw;
+    font-size: min(10.2vw, 4.6rem);
     width: 100%;
     margin-inline: auto;
     text-align: center;
