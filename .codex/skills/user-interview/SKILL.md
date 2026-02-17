@@ -40,7 +40,7 @@ Based on what the user asks, pick the right mode:
 >
 > | Data Source | MCP Tool (Local) | Cloud Agent Alternative | Secret / Env Var |
 > |-------------|-------------------|------------------------|------------------|
-> | **Mixpanel** | `run_segmentation_query` etc. | [Mixpanel Query API](https://developer.mixpanel.com/reference/query-api) | `MIXPANEL_API_SECRET` |
+> | **analytics** | `run_segmentation_query` etc. | Your analytics provider API docs | `ANALYTICS_API_SECRET` |
 > | **MongoDB** | Atlas MCP tools | [MongoDB Atlas Data API](https://www.mongodb.com/docs/atlas/app-services/data-api/) | `MONGODB_ATLAS_API_KEY`, `MONGODB_APP_ID` |
 > | **Crisp** | Shell (API) | [Crisp REST API](https://docs.crisp.chat/references/rest-api/v1/) | `CRISP_API_ID`, `CRISP_API_KEY` |
 > | **App Store** | Shell (JWT) | [App Store Connect API](https://developer.apple.com/documentation/appstoreconnectapi) | `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APP_STORE_CONNECT_PRIVATE_KEY` |
@@ -48,10 +48,10 @@ Based on what the user asks, pick the right mode:
 >
 > **Important:** The local `.env` file at `davidsulitzer.com/api/.env` is **NOT available** in cloud agent environments. Always use secrets. If a secret is missing, ask the user to add it in the Cursor Dashboard.
 >
-> Example (Mixpanel segmentation in cloud):
+> Example (analytics segmentation in cloud):
 > ```bash
-> curl -X POST "https://mixpanel.com/api/2.0/segmentation" \
->   -u "$MIXPANEL_API_SECRET:" \
+> curl -X POST "<YOUR_ANALYTICS_SEGMENTATION_ENDPOINT>" \
+>   -u "$ANALYTICS_API_SECRET:" \
 >   -d '{"event": "app_search_initiated", "from_date": "2026-01-01", "to_date": "2026-02-09"}'
 > ```
 >
@@ -65,13 +65,13 @@ Based on what the user asks, pick the right mode:
 >
 > **When a data source is inaccessible:** Don't silently skip it. Explicitly note in the report: "Could not access [source] — [reason]. Confidence scores adjusted accordingly."
 
-### 2a. Mixpanel — Behavioral Data (Project ID: <YOUR_MIXPANEL_PROJECT_ID>)
+### 2a. Product Analytics (Optional) — Behavioral Data (Project ID: <YOUR_ANALYTICS_PROJECT_ID>)
 
 Pull data relevant to the interview topic. Choose from:
 
 **Segmentation** — Understand user behavior patterns:
 ```
-run_segmentation_query with project_id: <YOUR_MIXPANEL_PROJECT_ID>
+run_segmentation_query with project_id: <YOUR_ANALYTICS_PROJECT_ID>
 ```
 Useful queries:
 - Event frequency by user cohort (e.g., how often do trial users search?)
@@ -80,7 +80,7 @@ Useful queries:
 
 **Funnels** — Understand conversion:
 ```
-run_funnels_query with project_id: <YOUR_MIXPANEL_PROJECT_ID>
+run_funnels_query with project_id: <YOUR_ANALYTICS_PROJECT_ID>
 ```
 Useful funnels:
 - Pricing Screen → Trial Start → Trial Converted
@@ -89,7 +89,7 @@ Useful funnels:
 
 **Retention** — Understand stickiness:
 ```
-run_retention_query with project_id: <YOUR_MIXPANEL_PROJECT_ID>
+run_retention_query with project_id: <YOUR_ANALYTICS_PROJECT_ID>
 ```
 Useful queries:
 - Day 1 / Day 3 / Day 7 retention by cohort
@@ -98,7 +98,7 @@ Useful queries:
 
 **Frequency** — Understand usage patterns:
 ```
-run_frequency_query with project_id: <YOUR_MIXPANEL_PROJECT_ID>
+run_frequency_query with project_id: <YOUR_ANALYTICS_PROJECT_ID>
 ```
 Useful queries:
 - Sessions per week distribution
@@ -107,7 +107,7 @@ Useful queries:
 
 **User Properties** — Understand who they are:
 ```
-get_property_values with project_id: <YOUR_MIXPANEL_PROJECT_ID>, resource_type: "User"
+get_property_values with project_id: <YOUR_ANALYTICS_PROJECT_ID>, resource_type: "User"
 ```
 Key properties to check:
 - `$country_code`, `$city` — geography
@@ -254,14 +254,14 @@ For each persona, specify:
 ```markdown
 ## Persona: "[Name]"
 **Segment:** [What real data segment they represent]
-**Data basis:** [Specific Mixpanel/MongoDB data that shaped this persona]
+**Data basis:** [Specific analytics/MongoDB data that shaped this persona]
 
 | Attribute | Details | Data Source |
 |-----------|---------|-------------|
-| Demographics | [Age, location, lifestyle] | Mixpanel geo data |
-| Behavior pattern | [How they use the app — frequency, features, timing] | Mixpanel events |
+| Demographics | [Age, location, lifestyle] | analytics geo data |
+| Behavior pattern | [How they use the app — frequency, features, timing] | analytics events |
 | Subscription status | [Trial, converted, churned, never started] | MongoDB userState |
-| Key actions | [Searches, saves, visits, reviews] | Mixpanel + MongoDB |
+| Key actions | [Searches, saves, visits, reviews] | analytics + MongoDB |
 | Pain points | [From reviews, feedback, support tickets] | App Store + Crisp |
 | Motivation | [Why they downloaded, what they hope for] | Onboarding data |
 ```
@@ -351,14 +351,14 @@ Generate 3-5 testable hypotheses based on the interviews. **Every hypothesis MUS
 
 | Confidence | Meaning | When to Use |
 |------------|---------|-------------|
-| 🟢 **High** | Backed by real data (Mixpanel numbers, actual reviews, MongoDB patterns) | Hypothesis directly supported by quantitative evidence |
+| 🟢 **High** | Backed by real data (analytics numbers, actual reviews, MongoDB patterns) | Hypothesis directly supported by quantitative evidence |
 | 🟡 **Medium** | Supported by qualitative signals (support tickets, a few reviews, codebase patterns) | Some real-world backing but not statistically rigorous |
 | 🔴 **Low** | Speculative — AI extrapolation, no direct data found | Plausible reasoning but no evidence yet; validate first |
 
 ```markdown
 | # | Hypothesis | Confidence | Supporting Evidence | How to Validate |
 |---|-----------|------------|-------------------|-----------------|
-| 1 | [Statement] | 🟢/🟡/🔴 | [Data source + what it showed] | [Mixpanel query / real interview question / A/B test] |
+| 1 | [Statement] | 🟢/🟡/🔴 | [Data source + what it showed] | [analytics query / real interview question / A/B test] |
 ```
 
 > **Rule:** If more than half your hypotheses are 🔴, explicitly call that out: "Most of these insights are speculative — real user interviews should be the priority before acting on them."
@@ -371,11 +371,11 @@ Connect insights back to Q1 2026 goals:
 
 | Metric | Current | Insight Impact | Suggested Action |
 |--------|---------|---------------|-----------------|
-| Pricing → Trial Start (goal: 20-25%) | [Pull from Mixpanel] | [How insights relate] | [Specific change] |
-| Trial → Converted (goal: 35-40%) | [Pull from Mixpanel] | [How insights relate] | [Specific change] |
-| Activation Rate (goal: 60%) | [Pull from Mixpanel] | [How insights relate] | [Specific change] |
-| Early Retention (goal: 40%) | [Pull from Mixpanel] | [How insights relate] | [Specific change] |
-| Investment Rate (goal: 10%) | [Pull from Mixpanel] | [How insights relate] | [Specific change] |
+| Pricing → Trial Start (goal: 20-25%) | [Pull from analytics] | [How insights relate] | [Specific change] |
+| Trial → Converted (goal: 35-40%) | [Pull from analytics] | [How insights relate] | [Specific change] |
+| Activation Rate (goal: 60%) | [Pull from analytics] | [How insights relate] | [Specific change] |
+| Early Retention (goal: 40%) | [Pull from analytics] | [How insights relate] | [Specific change] |
+| Investment Rate (goal: 10%) | [Pull from analytics] | [How insights relate] | [Specific change] |
 
 ---
 
@@ -548,7 +548,7 @@ After presenting results, suggest next steps:
 - **"Want me to simulate another persona?"** — Different segment, different perspective
 - **"Want me to draft a GitHub issue for any of these insights?"** — Using `/new-issue` skill
 - **"Want me to add an idea to the davidsulitzer.com Ideation Lab?"** — Track hypotheses as ideation items
-- **"Want me to pull more specific data on any of these findings?"** — Deeper Mixpanel/MongoDB dive
+- **"Want me to pull more specific data on any of these findings?"** — Deeper analytics/MongoDB dive
 - **"Should I run this for GFE too?"** — Same framework, but switches to GFE-specific personas, safety concerns, celiac sensitivity levels, and dietary-focused data
 
 ---
@@ -557,7 +557,7 @@ After presenting results, suggest next steps:
 
 | Source | Tool | What It Provides |
 |--------|------|-----------------|
-| **Mixpanel** | MCP (project_id: <YOUR_MIXPANEL_PROJECT_ID>) | Events, funnels, retention, segmentation, user properties |
+| **analytics** | MCP (project_id: <YOUR_ANALYTICS_PROJECT_ID>) | Events, funnels, retention, segmentation, user properties |
 | **MongoDB** | Atlas MCP (database: prod) | Users, reviews, feedback, saves, engagement, subscription state |
 | **App Store** | Shell (App Store Connect API) | User reviews, ratings, feature requests |
 | **Crisp** | Shell (API) | Support conversations, common complaints |
@@ -609,12 +609,12 @@ Real cancellation reasons captured in-app:
 
 | Reason | Code | Frequency Insight |
 |--------|------|-------------------|
-| Too expensive | `too_expensive` | Check Mixpanel for distribution |
-| Didn't find relevant places | `didnt_find_relevant_places` | Check Mixpanel for distribution |
-| Don't use often enough | `dont_use_often_enough` | Check Mixpanel for distribution |
-| Not enough places | `not_enough_places` | Check Mixpanel for distribution |
-| Safety concerns | `safety_concerns` | Check Mixpanel for distribution |
-| Technical issues/bugs | `technical_issues_bugs` | Check Mixpanel for distribution |
+| Too expensive | `too_expensive` | Check analytics for distribution |
+| Didn't find relevant places | `didnt_find_relevant_places` | Check analytics for distribution |
+| Don't use often enough | `dont_use_often_enough` | Check analytics for distribution |
+| Not enough places | `not_enough_places` | Check analytics for distribution |
+| Safety concerns | `safety_concerns` | Check analytics for distribution |
+| Technical issues/bugs | `technical_issues_bugs` | Check analytics for distribution |
 | Other (free text) | `other` | Check MongoDB userFeedback |
 
 ---

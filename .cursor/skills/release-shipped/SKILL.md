@@ -1,11 +1,11 @@
 ---
 name: release-shipped
-description: Post-Apple-approval steps — publish release, Mixpanel annotation, close out tracking, assign iOS versions to server & tile-server issues
+description: Post-Apple-approval steps — publish release, analytics annotation, close out tracking, assign iOS versions to server & tile-server issues
 disable-model-invocation: true
 ---
 # release-shipped
 
-Run this skill **after Apple approves the release and it's live in the App Store**. This handles publishing the GitHub release, annotating Mixpanel, closing out project tracking, and assigning iOS Versions to server/tile-server issues that shipped between releases.
+Run this skill **after Apple approves the release and it's live in the App Store**. This handles publishing the GitHub release, annotating analytics, closing out project tracking, and assigning iOS Versions to server/tile-server issues that shipped between releases.
 
 > **Prerequisite:** The `/new-release` skill must have been completed first — the draft GitHub release, tag, and PR should already exist.
 
@@ -27,14 +27,14 @@ gh release edit VERSION --repo 8Gaston8/davidsulitzer.com --draft=false
 
 ---
 
-## Step 2: Add Mixpanel Annotation
+## Step 2: Record Release Metrics (Optional)
 
-Annotate the release in Mixpanel with the **actual release date** (when Apple made it live, not when it was submitted):
+If you use a product analytics tool, record the release timestamp (actual App Store live date) and attach a short note for future analysis:
 
 ```bash
 curl -X POST \
-  'https://mixpanel.com/api/app/projects/<YOUR_MIXPANEL_PROJECT_ID>/annotations' \
-  --user "$MIXPANEL_SERVICE_ACCOUNT_USERNAME:$MIXPANEL_SERVICE_ACCOUNT_SECRET" \
+  '<YOUR_ANALYTICS_ANNOTATION_ENDPOINT>' \
+  --user "$ANALYTICS_SERVICE_ACCOUNT_USERNAME:$ANALYTICS_SERVICE_ACCOUNT_SECRET" \
   -H 'Content-Type: application/json' \
   -d '{
         "description": "iOS VERSION released",
@@ -43,13 +43,13 @@ curl -X POST \
       }'
 ```
 
-> **Note:** `MIXPANEL_SERVICE_ACCOUNT_USERNAME` and `MIXPANEL_SERVICE_ACCOUNT_SECRET` must be set in your environment (from `.env` file at `davidsulitzer.com/api/.env`).
+> **Note:** Set `ANALYTICS_SERVICE_ACCOUNT_USERNAME` and `ANALYTICS_SERVICE_ACCOUNT_SECRET` in your environment if you use this optional step.
 
 ---
 
-## Step 3: List New Mixpanel Events
+## Step 3: List New Analytics Events (If Any)
 
-If any new Mixpanel events were created as part of this release, list them so Gaston can prepare relevant Mixpanel dashboards or reports.
+If any new analytics events were introduced in this release, list them so reporting and dashboards can be updated.
 
 ---
 
@@ -261,7 +261,7 @@ Also report any issues that could NOT be assigned (e.g., closed before the earli
 
 ## What NOT to Do
 
-- **Don't run this before Apple approves** — the Mixpanel annotation timestamp must reflect the actual release date
+- **Don't run this before Apple approves** — the analytics annotation timestamp must reflect the actual release date
 - **Don't forget to publish the GitHub release** — it stays as a draft until this skill is invoked
 - **Don't update issue versions for PRs merged before the previous release** — only PRs merged after the last tag
 - **Don't skip server/tile-server issues** — they ship independently but still need iOS Version assignment for timeline tracking
@@ -274,5 +274,5 @@ Also report any issues that could NOT be assigned (e.g., closed before the earli
 
 - `/new-release` must have been completed (draft release, tag, and PR exist)
 - The app must be **approved and live** in the App Store
-- Environment variables `MIXPANEL_SERVICE_ACCOUNT_USERNAME` and `MIXPANEL_SERVICE_ACCOUNT_SECRET` must be set (from `davidsulitzer.com/api/.env`)
+- Environment variables `ANALYTICS_SERVICE_ACCOUNT_USERNAME` and `ANALYTICS_SERVICE_ACCOUNT_SECRET` must be set (from `davidsulitzer.com/api/.env`)
 - `gh` CLI must be authenticated with access to `8Gaston8/davidsulitzer.com`, `8Gaston8/davidsulitzer.com`, and `8Gaston8/davidsulitzer.com` repos

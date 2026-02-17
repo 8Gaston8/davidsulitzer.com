@@ -132,7 +132,7 @@ When creating a **bug** issue, do this additional research:
 4. **Identify dependencies** — What other systems does this code touch?
    - Feature flags that gate the behavior
    - API endpoints involved (grep for route definitions)
-   - Third-party services (Mixpanel, RevenueCat, Firebase, etc.)
+   - Third-party services (analytics, RevenueCat, Firebase, etc.)
    - Caching layers (tileserver, CDN, local cache)
 
 5. **Gather reproduction context:**
@@ -251,7 +251,7 @@ For each issue, include:
 | **Feature Flag** | New features or risky changes that should be gated |
 | **Reference Implementation** | When similar patterns/PRs exist to follow |
 | **Risk/Rollback** | Medium+ risk changes that could cause issues |
-| **Analytics Requirements** | When new Mixpanel events are needed |
+| **Analytics Requirements** | When new analytics events are needed |
 | **Documentation Updates** | When README, API docs, or agent rules need updating (see Step 7) |
 
 ### Section Templates

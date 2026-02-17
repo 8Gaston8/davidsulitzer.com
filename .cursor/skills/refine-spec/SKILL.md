@@ -103,7 +103,7 @@ rg -l "<function-or-class-name>" davidsulitzer.com/api/test/ 2>/dev/null
 Look for:
 - Feature flags that gate the behavior
 - API endpoints involved (grep for route definitions)
-- Third-party services (Mixpanel, RevenueCat, Firebase, etc.)
+- Third-party services (analytics, RevenueCat, Firebase, etc.)
 - Caching layers
 - Cross-repo dependencies (iOS ↔ Server ↔ Tileserver)
 
@@ -138,7 +138,7 @@ Compare the existing issue body against the required and conditional sections fr
 | **Feature Flag** | New features, risky changes | ✅/❌ | |
 | **Reference Implementation** | Similar patterns exist | ✅/❌ | |
 | **Risk/Rollback** | Medium+ risk changes | ✅/❌ | |
-| **Analytics Requirements** | New Mixpanel events | ✅/❌ | |
+| **Analytics Requirements** | New analytics events | ✅/❌ | |
 | **Documentation Updates** | README, API docs, agent rules | ✅/❌ | |
 
 > Present this gap table to the PM. Let them decide which missing sections are relevant before you start writing.

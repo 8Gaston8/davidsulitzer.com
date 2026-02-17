@@ -5,7 +5,7 @@ disable-model-invocation: true
 ---
 # new-release
 
-Prepare and ship a new iOS release — from creating the branch all the way through to creating the draft GitHub release. For post-Apple-approval steps (publishing, Mixpanel, stability score, issue tracking), see `/release-shipped`.
+Prepare and ship a new iOS release — from creating the branch all the way through to creating the draft GitHub release. For post-Apple-approval steps (publishing, analytics, stability score, issue tracking), see `/release-shipped`.
 
 ---
 
@@ -165,4 +165,4 @@ Trial Start → Trial Converted (goal: 35-40%)
 
 ## Next Step
 
-When Apple approves the release and it's live in the App Store, invoke `/release-shipped` to publish the GitHub release, annotate Mixpanel, and close out project tracking.
+When Apple approves the release and it's live in the App Store, invoke `/release-shipped` to publish the GitHub release, annotate analytics, and close out project tracking.
