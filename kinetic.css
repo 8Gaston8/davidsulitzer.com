@@ -360,6 +360,114 @@ main {
   color: var(--white-80);
 }
 
+
+.pm-journey {
+  background: var(--black);
+  color: var(--white);
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  padding: 34px 26px 44px;
+}
+
+.pm-kicker {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+  text-transform: uppercase;
+}
+
+.pm-journey h2 {
+  margin-top: 10px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(40px, 7vw, 98px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.pm-lead {
+  margin-top: 14px;
+  max-width: 920px;
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1.15;
+}
+
+.pm-timeline {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.pm-stop {
+  border: 2px solid var(--white-20);
+  padding: 14px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.pm-stop::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+  position: absolute;
+  left: -6px;
+  top: 18px;
+}
+
+.pm-period {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+}
+
+.pm-stop h3 {
+  margin-top: 8px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(26px, 4vw, 48px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.pm-stop p {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.pm-stop ul {
+  margin-top: 12px;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.pm-stop li {
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.pm-chips {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pm-chips span {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: -0.02em;
+  border: 2px solid var(--orange);
+  color: var(--black);
+  background: var(--orange);
+  padding: 4px 8px;
+}
+
 .services {
   background: var(--black);
   color: var(--white);
